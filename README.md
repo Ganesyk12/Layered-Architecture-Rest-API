@@ -3,7 +3,9 @@
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
-* [Setup](#setup)
+* [Pre-Requisite](#pre-requisite)
+* [Refference](#refference)
+* [Sponsor](#thanks-for-supporting)
 
 ## General info
 This is a simple project to create API.
@@ -31,7 +33,7 @@ This project was created using the following technologies:
 - Running project
 	> node .
 	
-##  Refference
+## Refference
 - [Express js Framework](https://expressjs.com/en/starter/installing.html)
 - [Prisma ORM](https://www.prisma.io/docs/getting-started)
 - Thanks for @theodevoid
