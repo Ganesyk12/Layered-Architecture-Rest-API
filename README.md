@@ -1,4 +1,5 @@
 # REST API Layered Architecture
+[![wakatime](https://wakatime.com/badge/user/0a923d76-6b27-459d-9760-5d1bd59e376e/project/167e9886-e1c8-4fcf-ac07-2ed6caaa3db2.svg)](https://wakatime.com/badge/user/0a923d76-6b27-459d-9760-5d1bd59e376e/project/167e9886-e1c8-4fcf-ac07-2ed6caaa3db2)
 
 ## Table of contents
 * [General info](#general-info)
