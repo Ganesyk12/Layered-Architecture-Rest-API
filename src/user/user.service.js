@@ -1,6 +1,6 @@
 // Handle Bussiness Logic
 // Reusable
-const { findUser, findUserbyID, insertUser, editUserbyID } = require("./user.repository");
+const { findUser, findUserbyID, insertUser, editUserbyID, findUserbyRoleID, findUserbyDeptID, deleteUserbyID } = require("./user.repository");
 
 const getAllUsers = async () => {
    const users = await findUser();
@@ -9,6 +9,22 @@ const getAllUsers = async () => {
 
 const getUserbyID = async (id_user) => {
    const user = await findUserbyID(id_user);
+   if (user.length === 0) {
+      throw Error("User Not Found");
+   }
+   return user;
+}
+
+const getUserbyRoleID = async (role_id) => {
+   const user = await findUserbyRoleID(role_id);
+   if (!user) {
+      throw Error("User Not Found");
+   }
+   return user;
+}
+
+const getUserbyDeptID = async (department_code) => {
+   const user = await findUserbyDeptID(department_code);
    if (!user) {
       throw Error("User Not Found");
    }
@@ -26,7 +42,7 @@ const updateUserbyID = async (id_user, userData) => {
    return user;
 }
 
-const deleteUserbyID = async (id_user) => {
+const deleteUser = async (id_user) => {
    await getUserbyID(id_user);
    await deleteUserbyID(id_user);
 }
@@ -34,7 +50,9 @@ const deleteUserbyID = async (id_user) => {
 module.exports = {
    getAllUsers,
    getUserbyID,
+   getUserbyRoleID,
+   getUserbyDeptID,
    createUser,
-   deleteUserbyID,
+   deleteUser,
    updateUserbyID
 }

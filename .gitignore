@@ -1,4 +1,3 @@
 node_modules/
 prisma/schema.prisma
-src/role/
 .env

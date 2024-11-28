@@ -11,8 +11,9 @@ app.listen(PORT, () => {
   console.log("Express API running in port: " + PORT);
 })
 
-app.get("/api", (req, res) => {
-  res.send("Hello World");
+app.get("/", (req, res) => {
+  res.send("welcome to express API");
+  res.status(200);
 })
 
 // MVC Routes
@@ -21,3 +22,6 @@ app.use("/users", userController);
 
 const roleController = require("./role/role.controller");
 app.use("/roles", roleController);
+
+const deptController = require("./department/depart.controller");
+app.use("/department", deptController);

@@ -24,3 +24,10 @@ model a_user_system {
   department_code  String?   @db.VarChar(50)
   is_active        String?   @db.VarChar(10)
 }
+
+model a_department {
+  department_id   String    @id @db.VarChar(50)
+  department_code String?   @unique @db.VarChar(50)
+  department_name String?   @db.VarChar(50)
+  created_at      DateTime? @db.Date
+}

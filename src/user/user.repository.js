@@ -17,6 +17,24 @@ const findUserbyID = async (id_user) => {
    return user;
 }
 
+const findUserbyRoleID = async (role_id) => {
+   const user = await prisma.a_user_system.findMany({
+      where: {
+         role_id: role_id,
+      }
+   });
+   return user;
+}
+
+const findUserbyDeptID = async (department_code) => {
+   const user = await prisma.a_user_system.findMany({
+      where: {
+         department_code: department_code,
+      }
+   });
+   return user;
+}
+
 const insertUser = async (userData) => {
    const user = await prisma.a_user_system.create({
       data: {
@@ -65,6 +83,8 @@ const deleteUserbyID = async (id_user) => {
 module.exports = {
    findUser,
    findUserbyID,
+   findUserbyRoleID,
+   findUserbyDeptID,
    insertUser,
    editUserbyID,
    deleteUserbyID

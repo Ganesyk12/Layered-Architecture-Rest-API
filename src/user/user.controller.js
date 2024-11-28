@@ -2,24 +2,29 @@
 // Handle Validate User
 
 const express = require("express");
-const { getAllUsers, getUserbyID, createUser, deleteUserbyID, updateUserbyID } = require("./user.service");
+const { getAllUsers, getUserbyID, createUser, deleteUser, updateUserbyID, getUserbyRoleID, getUserbyDeptID } = require("./user.service");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-   const users = await getAllUsers();
-   res.send(users);
-})
-
-router.get("/:id_user", async (req, res) => {
-   // const id_user = parseInt(req.params.id_user); IF id is number, then add the params in getUserbyID()
    try {
-      const userId = req.params.id_user;
-      const userData = await getUserbyID(userId);
-      res.send(userData);
-   } catch (err) {
-      res.status(400).send(err.message);
+      const userRole = req.query.role_id;
+      const userDept = req.query.department_code;
+      const userID   = req.query.id_user;
+      let users;
+      if (userID) {
+         users = await getUserbyID(userID);
+      } else if (userRole) {
+         users = await getUserbyRoleID(userRole);
+      } else if (userDept) {
+         users = await getUserbyDeptID(userDept);
+      } else {
+         users = await getAllUsers();
+      }
+      res.send(users);
+   } catch (error) {
+      res.status(400).send(error.message);
    }
-});
+})
 
 router.post("/", async (req, res) => {
    try {
@@ -54,6 +59,7 @@ router.put("/:id_user", async (req, res) => {
          res.status(400).send({
             message: "Request data Missing",
          });
+         return;
       }
 
       const user = await updateUserbyID(userId, userData);
@@ -83,7 +89,7 @@ router.patch("/:id_user", async (req, res) => {
 router.delete("/:id_user", async (req, res) => {
    try {
       const userId = req.params.id_user;
-      await deleteUserbyID(userId);
+      await deleteUser(userId);
       res.send("User Deleted Successfully");
    } catch (error) {
       res.status(400).send(error.message);

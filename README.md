@@ -33,7 +33,13 @@ This project was created using the following technologies:
 	> npx prisma generate
 - Running project
 	> node .
-	
+
+## Preview Result
+
+![rest_1jpg](https://github.com/user-attachments/assets/16cbfcce-4414-41aa-b6ab-5ac1fe3b5c8e "Result Preview 1")
+
+![rest_2jpg](https://github.com/user-attachments/assets/aa47dae0-d658-444c-8383-ea329185e7e5 "Result Preview 2")
+
 ## Refference
 - [Express js Framework](https://expressjs.com/en/starter/installing.html)
 - [Prisma ORM](https://www.prisma.io/docs/getting-started)
