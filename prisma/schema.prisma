@@ -10,7 +10,7 @@ datasource db {
 model a_user_role {
   role_id          String   @id
   role_name        String
-  transaction_date DateTime
+  transaction_date DateTime?
 }
 
 model a_user_system {

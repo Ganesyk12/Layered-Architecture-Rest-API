@@ -21,7 +21,7 @@ const userController = require("./user/user.controller");
 app.use("/users", userController);
 
 const roleController = require("./role/role.controller");
-app.use("/roles", roleController);
+app.use("/role", roleController);
 
 const deptController = require("./department/depart.controller");
 app.use("/department", deptController);
